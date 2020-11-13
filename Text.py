@@ -4,10 +4,11 @@ Created on Fri Nov 13 15:24:50 2020
 
 @author: Vinay Borhade
 """
+import pandas as pd
 
 class Text_Object(object):
-    def __init__(self, file):
-        self.text_file = file
+    def __init__(self, text_file):
+        self.text_df = pd.read_excel(text_file)
         self.models = []
         
     def extract_features(self):
@@ -21,10 +22,12 @@ class Text_Object(object):
         
         
 if __name__ == "__main__":
-    text_path = "/text/"
-    text_filename = "An Introduction to Linear Regression Analysis.txt"
+    text_path = "./text/"
+    text_filename = "An Introduction to Linear Regression Analysis.xlsx"
     text_file = text_path + text_filename
     text_obj = Text_Object(text_file)
+    
+    print(text_obj.text_df)
     
     text_obj.extract_features()
     

@@ -123,7 +123,7 @@ class Audio_Object(object):
     
         self.ts['duration'] = dur_sec
         self.ts['text'] = text
-        
+        self.ts['label'] = self.audio_filename
         self.save_ts_df()
     
 if __name__ == "__main__":
@@ -134,9 +134,10 @@ if __name__ == "__main__":
     audio_obj = Audio_Object(audio_path, audio_filename, audio_extn)
     
     # chunking to be done only once for an audio file; hence commented
-    text_filename = audio_obj.chunk()
+    audio_obj.chunk()
     
     # audio_obj.extract_text_from_chunk_folder()
     
     # audio_obj.whole_text
+    
     
